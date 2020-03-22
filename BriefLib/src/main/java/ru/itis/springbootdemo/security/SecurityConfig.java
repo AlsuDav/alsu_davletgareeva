@@ -26,6 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/**").hasAuthority("ADMIN")  //стр юзерс получает только роль админ
                 .antMatchers("/").permitAll() //only to authorized users
                 .antMatchers("/profile").authenticated()
+                .antMatchers("/changepassword").authenticated()
+                .antMatchers("/bookmarks").authenticated()
                 .antMatchers("/signUp").permitAll() //access to all users
                 .antMatchers("/index").permitAll()
                 .antMatchers("/confirm/**").permitAll();

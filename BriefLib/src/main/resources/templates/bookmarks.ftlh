@@ -2,13 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Вход</title>
+    <title>Личный кабинет. Закладки</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<#if error??> <!--if attr error exist,then...-->
-    <h1>Ошибка</h1>
-</#if>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -17,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Главная</a>
+                <a class="nav-link" href="/index">Главная</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Помощь</a>
@@ -42,35 +39,43 @@
             </div>
             <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="/signIn">Вход</a>
-                    <a class="dropdown-item" href="/signUp">Регистрация</a>
-
+                    <a class="dropdown-item" href="/profile">Мой профиль</a>
+                    <a class="dropdown-item" href="/bookmarks">Закладки</a>
+                    <a class="dropdown-item" href="#">Мои записи</a>
+                    <a class="dropdown-item" href="/changePassword">Изменить пароль</a>
+                    <a class="dropdown-item" href="/logout">Выход</a>
                 </div>
             </div>
         </form>
     </div>
 </nav>
-<form action="/signIn" method="post">
-    <div class="container" style="margin-left: 40%; margin-top: 5%">
-        <div class="row" style="margin-left: 7%">
-            <h1>Войти</h1>
+
+
+<h1 style="margin-top: 2%; margin-left: 2%">Закладки</h1>
+<div class="container" style="margin: 0; margin-left: 2%; margin-top: 2%; width: 35%">
+    <div class="row">
+        <div class="col-7">
+            <div class="row">
+                Название записи
+            </div>
+            <div class="row">
+                Дата обновления: ДД.ММ.ГГГГ
+            </div>
+            <div class="row">
+                Описание: Описание
+            </div>
         </div>
-        <div class="row" style="margin-top: 4%">
-            <input type="email" name="email" required placeholder="Email" size="30">
+        <div class="col">
+            <button class="btn" size=25 style="margin-top: 20%">Читать</button>
         </div>
-        <div class="row" style="margin-top: 2%">
-            <input type="password" name="password" required placeholder="Пароль" size="30">
-        </div>
-        <div class="row" style="margin-top: 2%">
-            <label><input type="checkbox" name="remember" style="margin-right: 7px">Запомнить меня</label>
-        </div>
-        <div class="row" style="margin-top: 2%">
-            <button type="submit" class="btn btn-default" style="width: 300px">Войти</button>
+        <div class="col">
+            <img src="../img/x.png" width="auto" height="20px">
         </div>
     </div>
-</form>
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

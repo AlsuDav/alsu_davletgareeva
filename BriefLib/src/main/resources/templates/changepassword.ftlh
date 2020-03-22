@@ -2,13 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Вход</title>
+    <title>Личный кабинет. Сменить пароль</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<#if error??> <!--if attr error exist,then...-->
-    <h1>Ошибка</h1>
-</#if>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,35 +39,39 @@
             </div>
             <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></img></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="/signIn">Вход</a>
-                    <a class="dropdown-item" href="/signUp">Регистрация</a>
-
+                    <a class="dropdown-item" href="/profile">Мой профиль</a>
+                    <a class="dropdown-item" href="/bookmarks">Закладки</a>
+                    <a class="dropdown-item" href="#">Мои записи</a>
+                    <a class="dropdown-item" href="/changePassword">Изменить пароль</a>
+                    <a class="dropdown-item" href="/logout">Выход</a>
                 </div>
             </div>
         </form>
     </div>
 </nav>
-<form action="/signIn" method="post">
-    <div class="container" style="margin-left: 40%; margin-top: 5%">
-        <div class="row" style="margin-left: 7%">
-            <h1>Войти</h1>
-        </div>
-        <div class="row" style="margin-top: 4%">
-            <input type="email" name="email" required placeholder="Email" size="30">
-        </div>
-        <div class="row" style="margin-top: 2%">
-            <input type="password" name="password" required placeholder="Пароль" size="30">
-        </div>
-        <div class="row" style="margin-top: 2%">
-            <label><input type="checkbox" name="remember" style="margin-right: 7px">Запомнить меня</label>
-        </div>
-        <div class="row" style="margin-top: 2%">
-            <button type="submit" class="btn btn-default" style="width: 300px">Войти</button>
-        </div>
+
+<div class="container" style="margin: 0; margin-top: 2%">
+    <div class="row" style="margin-left: 2%">
+        <h1>Изменение пароля</h1>
     </div>
-</form>
+    <form style="margin-left: 5%" oninput='newpass2.setCustomValidity(newpass.value !== newpass2.value ? "Пароли не совпадают" : "")'>
+        <div class="row" style="margin-top: 4%">
+            <input type="password" name="oldpass" placeholder="Старый пароль" size=30>
+        </div>
+        <div class="row" style="margin-top: 2%">
+            <input type="password" name="newpass" placeholder="Новый пароль" size=30>
+        </div>
+        <div class="row" style="margin-top: 2%">
+            <input type="password" name="newpass2" placeholder="Подтвердите новый пароль" size=30>
+        </div>
+        <div class="row" style="margin-top: 2%">
+            <button type="submit" style="width: 300px" class="btn btn-default">Сохранить</button>
+        </div>
+    </form>
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

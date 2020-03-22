@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Главная</a>
+                <a class="nav-link" href="/index">Главная</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Помощь</a>
@@ -39,13 +39,13 @@
             </div>
             <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="static/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#">Мой профиль</a>
-                    <a class="dropdown-item" href="#">Закладки</a>
+                    <a class="dropdown-item" href="/profile">Мой профиль</a>
+                    <a class="dropdown-item" href="/bookmarks">Закладки</a>
                     <a class="dropdown-item" href="#">Мои записи</a>
-                    <a class="dropdown-item" href="#">Изменить пароль</a>
-                    <a class="dropdown-item" href="#">Выход</a>
+                    <a class="dropdown-item" href="/changePassword">Изменить пароль</a>
+                    <a class="dropdown-item" href="/logout">Выход</a>
                 </div>
             </div>
         </form>
@@ -58,7 +58,7 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <img src="files/custom-ava.jpg" width="auto" height="240px">
+            <img src="../img/custom-ava.jpg" width="auto" height="240px">
         </div>
         <div class="col-5" style="margin-top: 5%">
             <div class="row">

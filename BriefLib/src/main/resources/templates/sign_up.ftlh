@@ -39,10 +39,10 @@
                 </div>
                 <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
                 <div class="btn-group">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></a>
                     <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#">Вход</a>
-                        <a class="dropdown-item" href="#">Регистрация</a>
+                        <a class="dropdown-item" href="/signIn">Вход</a>
+                        <a class="dropdown-item" href="/signUp">Регистрация</a>
 
                     </div>
                 </div>

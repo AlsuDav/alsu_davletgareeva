@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Помощь</a>
@@ -39,10 +39,10 @@
             </div>
             <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black">Личный кабинет</font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#">Вход</a>
-                    <a class="dropdown-item" href="#">Регистрация</a>
+                    <a class="dropdown-item" href="/signIn">Вход</a>
+                    <a class="dropdown-item" href="/signUp">Регистрация</a>
 
                 </div>
             </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="row"> </div>
             <div class="row">
-                <button class="btn btn-default" style="margin-left: 130px; margin-right: 20px">Войти</button><button class="btn btn-default" style="margin-left: 20px">Зарегистрироваться</button>
+                <button class="btn btn-default" style="margin-left: 130px; margin-right: 20px"><a href="/signIn">Войти</a></button><button class="btn btn-default" style="margin-left: 20px"><a href="/signUp">Зарегистрироваться</a></button>
             </div>
             <div>
             </div>
