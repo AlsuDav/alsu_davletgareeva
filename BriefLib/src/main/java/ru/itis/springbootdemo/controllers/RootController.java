@@ -13,7 +13,7 @@ public class RootController {
         if (authentication != null){
             return "redirect:/profile";
         } else {
-            return "redirect:/signIn";
+            return "redirect:/index";
         }
     }
 }

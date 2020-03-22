@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor //constructor without parameters
 @Builder //pattern
 @Entity
-@Table(name = "itis_user2")
-//на основе класса создается таблица itis_user
+@Table(name = "lib_users")
+//на основе класса создается таблица lib_users
 // в postgres не должно быть таблицы с названием user, она уже зарезервирована
 public class User {
     @Id
