@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <#import "spring.ftl" as spring />
     <meta charset="UTF-8">
-    <title>briefLib. Главная страница.</title>
+    <title>BriefLib</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -14,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/index">Главная <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index"><@spring.message 'all.page.header.main'/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Помощь</a>
+                <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
             </li>
         </ul>
         <form class="form-inline">
@@ -27,22 +28,22 @@
     				      	<li class="nav-item dropdown" style="list-style-type: none; margin: -20px">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          <a class="dropdown-item" href="#">Все</a>
-						          <a class="dropdown-item" href="#">Автор</a>
-						          <a class="dropdown-item" href="#">Класс</a>
-						          <a class="dropdown-item" href="#">Название</a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.all'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.author'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.class'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.title'/></a>
 						        </div>
 				      		</li>
         				</span>
                 </div>
-                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="<@spring.message 'all.page.header.search'/>" aria-label="Search">
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit"><@spring.message 'all.page.header.search'/></button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black"><@spring.message 'all.page.header.profile'/></font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="/signIn">Вход</a>
-                    <a class="dropdown-item" href="/signUp">Регистрация</a>
+                    <a class="dropdown-item" href="/signIn"><@spring.message 'sign_in.page.titee'/></a>
+                    <a class="dropdown-item" href="/signUp"><@spring.message 'all.page.header.signup'/></a>
 
                 </div>
             </div>
@@ -51,7 +52,7 @@
 </nav>
 
 <#if isConfirmed == true>
-    <h1 style="margin-left: 20px; margin-top: 50px"> Email подтвержден! </h1>
+    <h1 style="margin-left: 20px; margin-top: 50px"> <@spring.message 'confirm.page.email'/> </h1>
 <#else>
     <h1>Вы че</h1>
 </#if>

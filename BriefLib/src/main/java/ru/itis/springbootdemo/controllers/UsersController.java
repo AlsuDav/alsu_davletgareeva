@@ -32,7 +32,7 @@ public class UsersController {
     //@GetMapping("/search")
     @GetMapping(path = "/search", produces = "application/json; charset=UTF-8")
     @ResponseBody //сообщаем спрингу,что мы возвращаем не view, а лист юзеров
-    //path = "/search", produces = "application/json; charset=UTF-8"
+
     public List<UserDto> searchUsers(@RequestParam("name") String name) {
         return usersService.search(name);
     }

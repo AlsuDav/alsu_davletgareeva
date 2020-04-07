@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<#import "spring.ftl" as spring />
 <head>
     <meta charset="UTF-8">
-    <title>briefLib. Главная страница.</title>
+    <title>BriefLib</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -14,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/index">Главная <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/index"><@spring.message 'all.page.header.main'/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Помощь</a>
+                <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
             </li>
         </ul>
         <form class="form-inline">
@@ -27,43 +28,43 @@
     				      	<li class="nav-item dropdown" style="list-style-type: none; margin: -20px">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          <a class="dropdown-item" href="#">Все</a>
-						          <a class="dropdown-item" href="#">Автор</a>
-						          <a class="dropdown-item" href="#">Класс</a>
-						          <a class="dropdown-item" href="#">Название</a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.all'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.author'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.class'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.title'/></a>
 						        </div>
 				      		</li>        					
         				</span>
                 </div>
-                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="<@spring.message 'all.page.header.search'/>" aria-label="Search">
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit"><@spring.message 'all.page.header.search'/></button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black">Личный кабинет</font></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png" width=40px height=40px style="margin-right: 10px" alt=""><font color="black"><@spring.message 'all.page.header.profile'/></font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="/signIn">Вход</a>
-                    <a class="dropdown-item" href="/signUp">Регистрация</a>
+                    <a class="dropdown-item" href="/signIn"><@spring.message 'sign_in.page.titee'/></a>
+                    <a class="dropdown-item" href="/signUp"><@spring.message 'all.page.header.signup'/></a>
 
                 </div>
             </div>
         </form>
     </div>
 </nav>
-<h1 style="margin-left: 20px; margin-top: 50px"> Добро пожаловать на briefLib! </h1>
+<h1 style="margin-left: 20px; margin-top: 50px"> <@spring.message 'home.page.welcome.test'/> </h1>
 <div class="container" style="margin-top: 100px; margin-right: 280px">
 <div class="row">
     <div class="col">
-        Современное образование нацелено не на <b>качественное</b> получение специализированной информации, а на всестороннее развитие ученика во всех областях.<br><br>
-        К сожалению, иногда это приводит к печальным последствиям: школьник не всегда успевает по всем предметам сразу, особенно по тем, которые считает для себя лишними.<br><br>Таким предметом, хоть и напрасно, часто является литература, поэтому наш проект направлен на помощь школьникам, предпочитающих литературу, отличную от школьной.
+        <@spring.message 'home.page.introduction.b1'/> <b><@spring.message 'home.page.introduction.b2'/></b> <@spring.message 'home.page.introduction.b3'/><br><br>
+        <@spring.message 'home.page.introduction.b4'/><br><br><@spring.message 'home.page.introduction.b5'/>
     </div>
     <div class="col">
         <div class="container" style="margin-left: 100px" align="center">
             <div class="row">
-                <h4 style="margin-top: 90px">Для того, чтобы сохранять понравившиеся статьи, добавлять свои или комментировать</h4>
+                <h4 style="margin-top: 90px"><@spring.message 'home.page.introduction.b6'/></h4>
             </div>
             <div class="row"> </div>
             <div class="row">
-                <button class="btn btn-default" style="margin-left: 130px; margin-right: 20px"><a href="/signIn">Войти</a></button><button class="btn btn-default" style="margin-left: 20px"><a href="/signUp">Зарегистрироваться</a></button>
+                <button class="btn btn-default" style="margin-left: 130px; margin-right: 20px"><a href="/signIn"><@spring.message 'all.page.header.signin'/></a></button><button class="btn btn-default" style="margin-left: 20px"><a href="/signUp"><@spring.message 'all.page.header.signup'/></a></button>
             </div>
             <div>
             </div>

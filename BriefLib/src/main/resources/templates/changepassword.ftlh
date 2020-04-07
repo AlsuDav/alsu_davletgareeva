@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+<#import "spring.ftl" as spring />
 <head>
     <meta charset="UTF-8">
-    <title>Личный кабинет. Сменить пароль</title>
+    <title>BriefLib</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -14,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Главная</a>
+                <a class="nav-link" href="/index"><@spring.message 'all.page.header.main'/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Помощь</a>
+                <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
             </li>
         </ul>
         <form class="form-inline">
@@ -27,25 +28,25 @@
     				      	<li class="nav-item dropdown" style="list-style-type: none; margin: -20px">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          <a class="dropdown-item" href="#">Все</a>
-						          <a class="dropdown-item" href="#">Автор</a>
-						          <a class="dropdown-item" href="#">Класс</a>
-						          <a class="dropdown-item" href="#">Название</a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.all'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.author'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.class'/></a>
+						          <a class="dropdown-item" href="#"><@spring.message 'all.page.header.title'/></a>
 						        </div>
 				      		</li>
         				</span>
                 </div>
-                <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="<@spring.message 'all.page.header.search'/>" aria-label="Search">
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit">Поиск</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit"><@spring.message 'all.page.header.search'/></button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="../img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black">Личный кабинет</font></img></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black"><@spring.message 'all.page.header.profile'/></font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="/profile">Мой профиль</a>
-                    <a class="dropdown-item" href="/bookmarks">Закладки</a>
-                    <a class="dropdown-item" href="#">Мои записи</a>
-                    <a class="dropdown-item" href="/changePassword">Изменить пароль</a>
-                    <a class="dropdown-item" href="/logout">Выход</a>
+                    <a class="dropdown-item" href="/profile"><@spring.message 'profile.page.myprofile'/></a>
+                    <a class="dropdown-item" href="/bookmarks"><@spring.message 'profile.page.bookmarks'/></a>
+                    <a class="dropdown-item" href="#"><@spring.message 'profile.page.mynotes'/></a>
+                    <a class="dropdown-item" href="/changePassword"><@spring.message 'profile.page.changepassword'/></a>
+                    <a class="dropdown-item" href="/logout"><@spring.message 'profile.page.logout'/></a>
                 </div>
             </div>
         </form>
@@ -54,20 +55,20 @@
 
 <div class="container" style="margin: 0; margin-top: 2%">
     <div class="row" style="margin-left: 2%">
-        <h1>Изменение пароля</h1>
+        <h1><@spring.message 'change_pswd.page.t'/></h1>
     </div>
-    <form style="margin-left: 5%" oninput='newpass2.setCustomValidity(newpass.value !== newpass2.value ? "Пароли не совпадают" : "")'>
+    <form style="margin-left: 5%" oninput='newpass2.setCustomValidity(newpass.value !== newpass2.value ? "<@spring.message 'change_pswd.check'/>" : "")'>
         <div class="row" style="margin-top: 4%">
-            <input type="password" name="oldpass" placeholder="Старый пароль" size=30>
+            <input type="password" name="oldpass" placeholder="<@spring.message 'change_pswd.page.old.pswd'/>" size=30>
         </div>
         <div class="row" style="margin-top: 2%">
-            <input type="password" name="newpass" placeholder="Новый пароль" size=30>
+            <input type="password" name="newpass" placeholder="<@spring.message 'change_pswd.page.new.pswd'/>" size=30>
         </div>
         <div class="row" style="margin-top: 2%">
-            <input type="password" name="newpass2" placeholder="Подтвердите новый пароль" size=30>
+            <input type="password" name="newpass2" placeholder="<@spring.message 'change_pswd.page.confirm'/>" size=30>
         </div>
         <div class="row" style="margin-top: 2%">
-            <button type="submit" style="width: 300px" class="btn btn-default">Сохранить</button>
+            <button type="submit" style="width: 300px" class="btn btn-default"><@spring.message 'change_pswd.page.save'/></button>
         </div>
     </form>
 </div>
