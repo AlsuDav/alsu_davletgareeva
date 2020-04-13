@@ -19,6 +19,7 @@ public class UserDto {
     private Long id;
     private String email;
     private FileInfo photo;
+    private String phoneNumber;
 
     public static UserDto from(User user) {
         return UserDto.builder()
@@ -26,6 +27,7 @@ public class UserDto {
                 .email(user.getEmail())
                 .id(user.getId())
                 .photo(user.getPhoto())
+                .phoneNumber(user.getPhoneNumber())
                 .build();
     }
     public static List<UserDto> from(List<User> users) {

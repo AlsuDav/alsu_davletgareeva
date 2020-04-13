@@ -34,6 +34,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .state(State.NOT_CONFIRMED)
                 .role(Role.USER)
                 .confirmCode(UUID.randomUUID().toString())
+                .phoneNumber(form.getPhoneNumber())
                 .build();
         usersRepository.save(user);
         //emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName());

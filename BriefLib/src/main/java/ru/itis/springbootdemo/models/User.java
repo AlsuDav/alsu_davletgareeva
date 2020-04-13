@@ -24,6 +24,7 @@ public class User {
     private String email;
     private String hashPassword;
     private LocalDateTime createdAt;
+    private String phoneNumber;
 
     @Enumerated(value = EnumType.STRING)
     //если String, то в базе сохранится строка, если Ordinal - то номера(1,2),

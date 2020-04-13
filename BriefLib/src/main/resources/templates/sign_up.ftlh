@@ -63,6 +63,9 @@
                 <input type="email" name="email" required placeholder="Email" size="30">
             </div>
             <div class="row" style="margin-top: 2%">
+                <input type="tel" id="phone" name="phone" placeholder="phone" size="30" pattern="[+]{7}[0-9]{11,14}" required>
+            </div>
+            <div class="row" style="margin-top: 2%">
                 <input type="password" name="password" required placeholder="<@spring.message 'sign_in.page.password.placeholder'/>" size="30">
             </div>
             <div class="row" style="margin-top: 2%">
