@@ -30,7 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/bookmarks").authenticated()
                 .antMatchers("/signUp").permitAll() //access to all users
                 .antMatchers("/index").permitAll()
-                .antMatchers("/confirm/**").permitAll();
+                .antMatchers("/confirm/**").permitAll()
+                .antMatchers("/profile/edit").authenticated()
+                .antMatchers("/files").permitAll();
 
         http.formLogin()
                 .loginPage("/signIn")

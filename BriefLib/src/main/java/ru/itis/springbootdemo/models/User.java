@@ -33,4 +33,7 @@ public class User {
 
     private String confirmCode;
 
+    @OneToOne
+    @JoinColumn(name = "photo_id")
+    private FileInfo photo;
 }

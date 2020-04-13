@@ -2,6 +2,7 @@ package ru.itis.springbootdemo.service;
 
 import ru.itis.springbootdemo.dto.SignUpDto;
 import ru.itis.springbootdemo.dto.UserDto;
+import ru.itis.springbootdemo.models.User;
 
 import java.util.List;
 

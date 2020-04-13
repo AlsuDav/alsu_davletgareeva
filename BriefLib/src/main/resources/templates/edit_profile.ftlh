@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
+<#import "spring.ftl" as spring />
 <head>
-    <#import "spring.ftl" as spring />
     <meta charset="UTF-8">
-    <title>Profile</title>
+    <title>BriefLib</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -40,10 +40,7 @@
             </div>
             <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:25px" type="submit"><@spring.message 'all.page.header.search'/></button>
             <div class="btn-group">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown">
-                    <img src="img/profile.png"width=40px height=40px style="margin-right: 10px">
-                    <font color="black"><@spring.message 'all.page.header.profile'/></font></a>
-
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profileDropdown"><img src="img/profile.png"width=40px height=40px style="margin-right: 10px"><font color="black"><@spring.message 'all.page.header.profile'/></font></a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="/profile"><@spring.message 'profile.page.myprofile'/></a>
                     <a class="dropdown-item" href="/bookmarks"><@spring.message 'profile.page.bookmarks'/></a>
@@ -57,36 +54,31 @@
 </nav>
 
 <div class="container" style="margin: 0; margin-top: 2%">
-    <div class="row" style="margin-left: 5%">
-        <h1><@spring.message 'profile.page.myprofile'/></h1>
+    <div class="row" style="margin-left: 2%">
+        <h1><@spring.message 'edit_profile.page.formtitle'/></h1>
     </div>
-    <div class="row">
-        <div class="col-4">
-            <#if user.photo??>
-            <img src="http://localhost:81/files/${user.photo.storageFileName}" width="auto" height="240px">
-                <#else >
-                    <img src="../img/custom-ava.jpg" width="auto" height="240px">
-            </#if>
+    <p>Change photo</p>
+    <#include "file_upload.ftlh">
+    <br>
+    <form style="margin-left: 5%" action="/editProfile/${user.id}" method="post" name="editPro" enctype="multipart/form-data">
+        <div class="row" style="margin-top: 4%">
+            <input type="text" name="name" placeholder="Name*" value="${user.name}" size=30>
         </div>
-        <div class="col-5" style="margin-top: 5%">
-            <div class="row">
-                <b>${user.email}</b>
-            </div>
-            <div class="row" style="margin-top: 2%">
-                <b>${user.name}</b>
-            </div>
-            <div class="row" style="margin-top: 7%">
-
-                <button class="btn btn-default" style="margin-left: 130px; margin-right: 20px"><a href="/editProfile"><@spring.message 'profile.page.edit'/></a></button>
-
-            </div>
+        <div class="row" style="margin-top: 2%">
+            <input type="text" name="email" placeholder="Email*" value="${user.email}" size=30>
         </div>
-    </div>
+
+        <div class="row" style="margin-top: 2%">
+            <button type="submit" style="width: 300px" class="btn btn-default"><@spring.message 'edit_profile.page.save_changes'/></button>
+        </div>
+    </form>
+    <br>
+
 </div>
 
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
