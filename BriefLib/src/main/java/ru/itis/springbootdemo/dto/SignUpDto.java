@@ -9,6 +9,11 @@ public class SignUpDto {
     private String email;
     private String password;
     private String phoneNumber;
+    //код, сгенерированный сервером(смс)
     private String code;
+    //код, вводимый пользователем
+    private String confirmCode;
+
+
 }
 

@@ -31,7 +31,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .hashPassword(passwordEncoder.encode(form.getPassword()))
                 .name(form.getName())
                 .createdAt(LocalDateTime.now())
-                .state(State.NOT_CONFIRMED)
+                .state(State.CONFIRMED) //т.к регаемся теперь через телефон
                 .role(Role.USER)
                 .confirmCode(UUID.randomUUID().toString())
                 .phoneNumber(form.getPhoneNumber())
