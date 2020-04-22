@@ -19,9 +19,7 @@
                     }
                 })
             }
-            // function checkCode() {
-            //     var code = $('#code')
-            // }
+
             function signUp() {
                 $.ajax({
                     type: "POST",

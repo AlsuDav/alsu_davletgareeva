@@ -1,0 +1,18 @@
+server:
+  port: 80
+zuul:
+  routes:
+    notes:
+      path: /notes-management/**
+      serviceId: notes-service
+    books:
+      path: /books-management/**
+      serviceId: books-service
+
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url.default: http://localhost:8761/eureka
+
