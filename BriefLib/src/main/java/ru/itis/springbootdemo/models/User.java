@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor //constructor with all parameters
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "lib_users")
 //на основе класса создается таблица lib_users
 // в postgres не должно быть таблицы с названием user, она уже зарезервирована
-public class User {
+public class User  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

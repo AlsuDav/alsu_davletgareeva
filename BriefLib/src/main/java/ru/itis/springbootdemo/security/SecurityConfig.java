@@ -2,6 +2,7 @@ package ru.itis.springbootdemo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -33,7 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/index").permitAll()
                 .antMatchers("/confirm/**").permitAll()
                 .antMatchers("/profile/edit").authenticated()
-                .antMatchers("/files").permitAll();
+                .antMatchers("/files").permitAll()
+                .and()
+                .rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository());
 
         http.formLogin()
                 .loginPage("/signIn")
@@ -42,6 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("email")  //def-username, but in our form отпр.email
                 .permitAll();
 
+        http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/signIn")
+                .deleteCookies("SESSION", "remember-me")
+                .invalidateHttpSession(true);
     }
 
     @Autowired
@@ -50,6 +62,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder);
+    }
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Bean
+    public PersistentTokenRepository persistentTokenRepository() {
+        JdbcTokenRepositoryImpl jdbcTokenRepository = new JdbcTokenRepositoryImpl();
+        jdbcTokenRepository.setDataSource(dataSource);
+        return jdbcTokenRepository;
     }
 }
 
