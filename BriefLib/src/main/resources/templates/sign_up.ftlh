@@ -93,6 +93,7 @@
             <div class="row" style="margin-left: 2%">
                 <h1><@spring.message 'sign_up.page'/></h1>
             </div>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
             <input type="hidden" id="code" name="code" value="qq">
             <div class="row" style="margin-top: 2%" >
                 <input type="text" id="name" name="name" required placeholder="<@spring.message 'sign_up.page.name.placeholder'/>" size="30">

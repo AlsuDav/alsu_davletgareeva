@@ -61,6 +61,7 @@
     <#include "file_upload.ftlh">
     <br>
     <form style="margin-left: 5%" action="/editProfile/${user.id}" method="post" name="editPro" enctype="multipart/form-data">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div class="row" style="margin-top: 4%">
             <input type="text" name="name" placeholder="Name*" value="${user.name}" size=30>
         </div>

@@ -58,6 +58,7 @@
         <div class="row" style="margin-left: 7%">
             <h1><@spring.message 'sign_in.page.titee'/></h1>
         </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div class="row" style="margin-top: 4%">
             <input type="email" name="email" required placeholder="Email" size="30">
         </div>

@@ -58,6 +58,7 @@
         <h1><@spring.message 'change_pswd.page.t'/></h1>
     </div>
     <form style="margin-left: 5%" oninput='newpass2.setCustomValidity(newpass.value !== newpass2.value ? "<@spring.message 'change_pswd.check'/>" : "")'>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div class="row" style="margin-top: 4%">
             <input type="password" name="oldpass" placeholder="<@spring.message 'change_pswd.page.old.pswd'/>" size=30>
         </div>
