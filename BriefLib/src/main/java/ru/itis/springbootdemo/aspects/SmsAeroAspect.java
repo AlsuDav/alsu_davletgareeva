@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
-import ru.itis.springbootdemo.dto.SignUpDto;
+
 
 import java.time.LocalDateTime;
 
