@@ -18,7 +18,7 @@ public class SmsAeroServiceImpl implements SmsService {
         Random random = new Random();
         int number = random.nextInt(1000) + 1000;
         String message = "your confirm code is " + number;
-
+        System.out.println(message);
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders httpHeaders = new HttpHeaders();

@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import ru.itis.springbootdemo.dto.SignUpDto;
 
+import java.time.LocalDateTime;
+
 @Aspect
 @Component //for context
 @Slf4j
@@ -21,13 +23,13 @@ public class SignUpAspect {
     public void before(JoinPoint joinPoint){
         Object[] args = joinPoint.getArgs();
         SignUpDto user = (SignUpDto)args[0];
-        log.info("Пользователь - " + user + " начал регистрацию");
+        log.info("Время: "+ LocalDateTime.now()+ " " + "пользователь - " + user + " начал регистрацию");
     }
     @After(value = "execution(* ru.itis.springbootdemo.service.SignUpService.SignUp(*))")
     public void after(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
         SignUpDto user = (SignUpDto) args[0];
-        log.info("Пользователь - " + user + " завершил регистрацию");
+        log.info("Время: "+ LocalDateTime.now() + " " + "пользователь - " + user + " завершил регистрацию");
     }
 
 }
