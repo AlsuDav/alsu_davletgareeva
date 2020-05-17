@@ -12,3 +12,10 @@ Content-Type: application/json
 }
 
 ###
+
+GET localhost:81/search/notes?q=1&page=0&size=1
+
+###
+GET localhost:81/index
+
+###

@@ -31,8 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/users/**").hasAuthority("ADMIN")  //стр юзерс получает только роль админ
-                .antMatchers("/").permitAll() //only to authorized users
-                .antMatchers("/profile").authenticated()
+                .antMatchers("/").permitAll()
+                .antMatchers("/profile").authenticated()//only to authorized users
                 .antMatchers("/changepassword").authenticated()
                 .antMatchers("/bookmarks").authenticated()
                 .antMatchers("/signUp").permitAll() //access to all users
@@ -40,7 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/confirm/**").permitAll()
                 .antMatchers("/profile/edit").authenticated()
                 .antMatchers("/editProfile").authenticated()
+                .antMatchers("/notes").authenticated()
+                .antMatchers("/newNote").authenticated()
+                .antMatchers("note/**").authenticated()
+                .antMatchers("/deleteNote/**").authenticated()
                 .antMatchers("/files").permitAll()
+                .antMatchers("/search/**").permitAll()
                 .and()
                 .rememberMe().rememberMeParameter("remember-me").tokenRepository(persistentTokenRepository());
 
