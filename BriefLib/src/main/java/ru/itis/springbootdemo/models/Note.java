@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 @AllArgsConstructor //constructor with all parameters
@@ -29,12 +30,29 @@ public class Note implements Serializable {
 
     private LocalDateTime createdAt;
 
+    @Transient
+    private String common_title;
+
+    @Transient
+    private String description;
+
+    @Transient
+    private String createdAtString;
+
     @Enumerated(value = EnumType.STRING)
     private AccessType accessType;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @PostLoad
+    public void setCommonTitle() {
+        common_title = author + "  \" " + title + " \" ";
+        description = content.substring(0,100) + "...";
+        createdAtString = createdAt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+    }
+
 
 //    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
 //    private Collection<Comment> comments;

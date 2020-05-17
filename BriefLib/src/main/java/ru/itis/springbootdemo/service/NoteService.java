@@ -19,4 +19,5 @@ public interface NoteService {
     Note getConcreteNote(Long noteId);
     void delete(Note note);
 
+    List<Note> findNotes(String access, User user);
 }

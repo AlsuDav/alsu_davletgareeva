@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.itis.springbootdemo.dto.NoteDto;
 import ru.itis.springbootdemo.dto.UserDto;
 import ru.itis.springbootdemo.models.Note;
@@ -50,14 +47,40 @@ public class NoteController {
         return "redirect:/notes";
     }
     @GetMapping("/myNotes")
-    public String getUserNotes(Authentication authentication, Model model){
+    public String getUserNotes(@RequestParam("access") String access, Authentication authentication, Model model){
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user =  userDetails.getUser();
-        List<Note> notes = noteService.getUserNotes(user);
+        List<Note> notes = noteService.findNotes(access,user);
+//        if(access.equals("all")){
+//            notes = noteService.getUserNotes(user);
+//        }
+//        if(access.equals("public")){
+//            notes = user.getPublicNotes();
+//        } else {
+//            notes = user.getPrivateNotes();
+//        }
         model.addAttribute("notes", notes);
         model.addAttribute("user", user);
         return "my_notes";
     }
+//    @GetMapping("/myNotes/public")
+//    public String getUserPublicNotes(Authentication authentication, Model model){
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//        User user =  userDetails.getUser();
+//        List<Note> notes = user.getPublicNotes();
+//        model.addAttribute("notes", notes);
+//        model.addAttribute("user", user);
+//        return "my_notes";
+//    }
+//    @GetMapping("/myNotes/private")
+//    public String getUserPrivateNotes(Authentication authentication, Model model){
+//        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+//        User user =  userDetails.getUser();
+//        List<Note> notes = user.getPrivateNotes();
+//        model.addAttribute("notes", notes);
+//        model.addAttribute("user", user);
+//        return "my_notes";
+//    }
 
     @GetMapping("note/{note-id}")
     public String getConcreteNote(Authentication authentication, @PathVariable("note-id") Long noteId, Model model) {

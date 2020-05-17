@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/newNote").authenticated()
                 .antMatchers("note/**").authenticated()
                 .antMatchers("/deleteNote/**").authenticated()
+                .antMatchers("/myNotes/**").authenticated()
                 .antMatchers("/files").permitAll()
                 .antMatchers("/search/**").permitAll()
                 .and()

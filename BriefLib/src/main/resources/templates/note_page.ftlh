@@ -54,6 +54,19 @@
 </nav>
 
     <div>
+        <#if isOwner>
+            <div class="row">
+                <a href="/editNote/${note.id}" class="col-md-2">
+                    <button type="button" class="btn btn-outline-primary btn-sm" >Edit</button>
+                </a>
+                <form action="/deleteNote/${note.id}" method="post"
+                      class="form-horizontal">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                    <button type="submit" class="btn btn-outline-danger btn-sm" value="Delete">Delete</button>
+                </form>
+            </div>
+
+        </#if>
         Created at: ${note.createdAt}
         Who posted: ${note.user.name}
         Title: ${note.title}
@@ -61,26 +74,7 @@
         <div>${note.content} </div>
         <hr>
 
-        <#if isOwner>
-        <div class="row">
-            <a href="/editNote/${note.id}" class="col-md-2">
-                <button type="button" class="btn btn-primary btn-block" >Edit</button>
-            </a>
 
-        </div>
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <form action="/deleteNote/${note.id}" method="post"
-                          class="form-horizontal">
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                        <div class="form-group">
-                            <!--<input type="hidden" name="_method" value="delete"/>-->
-                            <button type="submit" class="btn btn-danger btn-block" value="Delete">Delete</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </#if>
     </div>
 
 

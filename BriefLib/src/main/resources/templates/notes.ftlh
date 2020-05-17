@@ -53,18 +53,59 @@
     </div>
 </nav>
 <#list notes as note>
+    <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div id="postlist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3 class="pull-left"> <a href="/note/${note.id}"> ${note.common_title}</a></h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h4 class="pull-right">
+                                        <small>${note.createdAtString}</small>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        ${note.description}
+                    </div>
+
+                    <div class="panel-footer">
+                        <span class="label label-default">Posted by <i>${note.user.name}</i></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+</#list>
+<!--<#list notes as note>
     <div>
 
         Created at: ${note.createdAt}
         Who posted: ${note.user.name}
-        <a href="/note/${note.id}">Title: ${note.title}</a>
+        <a href="/note/${note.id}"> ${note.common_title}</a>
         Author: ${note.author}
-        <div>${note.content} </div>
+        <div>${note.description} </div>
         <hr>
 
     </div>
 </#list>
-
+-->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

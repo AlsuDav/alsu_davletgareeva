@@ -52,16 +52,48 @@
         </form>
     </div>
 </nav>
+<a class="btn btn-primary" href="/myNotes" role="button">All</a>
+<a class="btn btn-primary" href="/myNotes/public" role="button">Published</a>
+<a class="btn btn-primary" href="/myNotes/private" role="button">Private</a>
 <#list notes as note>
-    <div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div id="postlist">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <div class="text-center">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h3 class="pull-left"> <a href="/note/${note.id}"> ${note.common_title}</a></h3>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <h4 class="pull-right">
+                                            <small>${note.createdAtString}</small>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            ${note.description}
+                        </div>
 
-        Created at: ${note.createdAt}
-        Who posted: ${note.user.name}
-        <a href="/note/${note.id}">Title: ${note.title}</a>
-        Author: ${note.author}
-        <div>${note.content} </div>
-        <hr>
+                        <div class="panel-footer">
+                            <span class="label label-default">Posted by <i>${note.user.name}</i></span>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
     </div>
 </#list>
 

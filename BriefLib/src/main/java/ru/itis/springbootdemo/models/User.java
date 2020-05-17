@@ -1,13 +1,18 @@
 package ru.itis.springbootdemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor //constructor with all parameters
 @NoArgsConstructor //constructor without parameters
@@ -38,4 +43,13 @@ public class User  implements Serializable {
     @OneToOne
     @JoinColumn(name = "photo_id")
     private FileInfo photo;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Where(clause = "access_type = 'PUBLIC'")
+    private List<Note> publicNotes=new ArrayList<>();
+
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @Where(clause = "access_type = 'PRIVATE'")
+    private List<Note> privateNotes =new ArrayList<>();
+
 }

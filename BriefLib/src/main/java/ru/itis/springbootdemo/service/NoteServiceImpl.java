@@ -2,13 +2,16 @@ package ru.itis.springbootdemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.itis.springbootdemo.dto.NoteDto;
 import ru.itis.springbootdemo.models.AccessType;
 import ru.itis.springbootdemo.models.Note;
 import ru.itis.springbootdemo.models.User;
 import ru.itis.springbootdemo.repositories.NotesRepository;
 
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,6 +69,21 @@ public class NoteServiceImpl implements NoteService{
     @Override
     public void delete(Note note) {
         notesRepository.delete(note);
+    }
+
+    @Transactional
+    @Override
+    public List<Note> findNotes(String access, User user) {
+
+        if (access.equals("all")){
+            return notesRepository.findAllByUser(user);
+        }
+        if (access.equals("public")){
+            return user.getPublicNotes();
+        } else{
+            return user.getPrivateNotes();
+        }
+
     }
 
 
