@@ -1,4 +1,4 @@
-package ru.itis.springbootdemo.models;
+package ru.itis.restbrieflib.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

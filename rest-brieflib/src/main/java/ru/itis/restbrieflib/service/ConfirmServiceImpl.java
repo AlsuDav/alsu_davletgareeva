@@ -1,12 +1,13 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.itis.springbootdemo.models.State;
-import ru.itis.springbootdemo.models.User;
-import ru.itis.springbootdemo.repositories.UsersRepository;
+import ru.itis.restbrieflib.models.State;
+import ru.itis.restbrieflib.models.User;
+import ru.itis.restbrieflib.repositories.UsersRepository;
 
 import java.util.Optional;
+
 @Service
 public class ConfirmServiceImpl implements ConfirmService {
     @Autowired

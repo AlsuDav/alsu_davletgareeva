@@ -1,14 +1,13 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import ru.itis.springbootdemo.dto.NoteDto;
-import ru.itis.springbootdemo.dto.NotesSearchResult;
-import ru.itis.springbootdemo.models.AccessType;
-import ru.itis.springbootdemo.models.Note;
-import ru.itis.springbootdemo.repositories.NotesRepository;
+import ru.itis.restbrieflib.dto.NoteDto;
+import ru.itis.restbrieflib.dto.NotesSearchResult;
+import ru.itis.restbrieflib.models.Note;
+import ru.itis.restbrieflib.repositories.NotesRepository;
 
 import java.util.List;
 

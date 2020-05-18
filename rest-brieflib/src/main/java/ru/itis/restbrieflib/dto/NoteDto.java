@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.itis.springbootdemo.models.Note;
-import ru.itis.springbootdemo.models.User;
+import ru.itis.restbrieflib.models.Note;
+import ru.itis.restbrieflib.models.User;
 
 import java.time.LocalDateTime;
 import java.util.List;

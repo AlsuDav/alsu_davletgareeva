@@ -1,26 +1,25 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.itis.springbootdemo.dto.NoteDto;
-import ru.itis.springbootdemo.models.AccessType;
-import ru.itis.springbootdemo.models.Note;
-import ru.itis.springbootdemo.models.User;
-import ru.itis.springbootdemo.repositories.NotesRepository;
-
+import ru.itis.restbrieflib.dto.NoteDto;
+import ru.itis.restbrieflib.models.AccessType;
+import ru.itis.restbrieflib.models.Note;
+import ru.itis.restbrieflib.models.User;
+import ru.itis.restbrieflib.repositories.NotesRepository;
+import ru.itis.restbrieflib.repositories.UsersRepository;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
-
-import static ru.itis.springbootdemo.dto.NoteDto.from;
 
 @Service
 public class NoteServiceImpl implements NoteService{
     @Autowired
     NotesRepository notesRepository;
+
+    @Autowired
+    UsersRepository usersRepository;
     @Override
     public List<Note> findForId(Long id) {
         return null;
@@ -84,6 +83,13 @@ public class NoteServiceImpl implements NoteService{
             return user.getPrivateNotes();
         }
 
+    }
+
+    @Override
+    public List<Note> findNotesByUserId(String access, Long user_id) {
+        User user = usersRepository.findById(user_id).get();
+
+        return notesRepository.findAllByUser(user);
     }
 
 

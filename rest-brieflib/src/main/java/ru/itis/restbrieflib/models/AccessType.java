@@ -1,4 +1,4 @@
-package ru.itis.springbootdemo.models;
+package ru.itis.restbrieflib.models;
 
 public enum AccessType {
     PUBLIC, PRIVATE

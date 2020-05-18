@@ -1,6 +1,6 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
-import ru.itis.springbootdemo.dto.SignUpDto;
+import ru.itis.restbrieflib.dto.SignUpDto;
 
 public interface SignUpService {
     void SignUp(SignUpDto form);

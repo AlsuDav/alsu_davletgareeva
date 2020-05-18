@@ -5,8 +5,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import ru.itis.springbootdemo.models.Note;
-import ru.itis.springbootdemo.models.User;
+import ru.itis.restbrieflib.models.Note;
+import ru.itis.restbrieflib.models.User;
 
 import java.util.List;
 import java.util.Optional;

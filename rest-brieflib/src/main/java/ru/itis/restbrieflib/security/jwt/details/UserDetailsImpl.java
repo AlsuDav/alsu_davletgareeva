@@ -1,5 +1,6 @@
-package ru.itis.restbrieflib.security;
+package ru.itis.restbrieflib.security.jwt.details;
 
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,33 +9,27 @@ import ru.itis.restbrieflib.models.User;
 
 import java.util.Collection;
 import java.util.Collections;
-
+@Builder
 public class UserDetailsImpl implements UserDetails {
 
-    private User user;
-    public UserDetailsImpl (User user){
-        this.user = user;
-    }
-    public User getUser() {
-        return user;
-    }
+    private Long userId;
+    private String role;
+    private String name;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String role = user.getRole().toString();
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
         return Collections.singletonList(authority);
-
     }
 
     @Override
     public String getPassword() {
-        return user.getHashPassword();
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return this.name;
     }
 
     @Override
@@ -54,9 +49,10 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getState().equals(State.CONFIRMED);
+        return true;
     }
 
-
-
+    public Long getUserId() {
+        return userId;
+    }
 }

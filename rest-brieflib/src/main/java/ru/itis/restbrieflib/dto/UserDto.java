@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.itis.springbootdemo.models.FileInfo;
-import ru.itis.springbootdemo.models.User;
+import ru.itis.restbrieflib.models.FileInfo;
+import ru.itis.restbrieflib.models.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,20 +1,21 @@
-package ru.itis.springbootdemo.controllers;
+package ru.itis.restbrieflib.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.service.SignUpService;
-import ru.itis.springbootdemo.service.SignUpServiceImpl;
-import ru.itis.springbootdemo.service.SmsAeroServiceImpl;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import ru.itis.restbrieflib.dto.SignUpDto;
+import ru.itis.restbrieflib.service.SignUpService;
 
 @Controller
 public class SignUpController {
     @Autowired
     private SignUpService service;
 
-    @Autowired
-    private SmsAeroServiceImpl smsAeroService;
+//    @Autowired
+//    private SmsAeroServiceImpl smsAeroService;
 
     @GetMapping("/signUp")
     public String getSignUpPage() {
@@ -43,9 +44,9 @@ public class SignUpController {
         }
     }
 
-    @ResponseBody
-    @RequestMapping(path = "/signUp/sendConfirmCode", produces = "application/text; charset=UTF-8")
-    public String sendCode(@RequestParam("phone") String phone) {
-        return smsAeroService.sendConfirmCode(phone);
-    }
+//    @ResponseBody
+//    @RequestMapping(path = "/signUp/sendConfirmCode", produces = "application/text; charset=UTF-8")
+//    public String sendCode(@RequestParam("phone") String phone) {
+//        return smsAeroService.sendConfirmCode(phone);
+//    }
 }

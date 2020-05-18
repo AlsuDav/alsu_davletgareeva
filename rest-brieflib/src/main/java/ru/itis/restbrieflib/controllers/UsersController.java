@@ -1,12 +1,11 @@
-package ru.itis.springbootdemo.controllers;
+package ru.itis.restbrieflib.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.itis.springbootdemo.dto.UserDto;
-import ru.itis.springbootdemo.service.UsersService;
+import ru.itis.restbrieflib.dto.UserDto;
+import ru.itis.restbrieflib.service.UsersService;
 
 import java.util.List;
 

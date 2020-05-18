@@ -1,18 +1,28 @@
-package ru.itis.springbootdemo.controllers;
+package ru.itis.restbrieflib.controllers;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.itis.springbootdemo.security.UserDetailsImpl;
+import org.springframework.web.bind.annotation.RestController;
+import ru.itis.restbrieflib.dto.UserDto;
+import ru.itis.restbrieflib.security.jwt.details.UserDetailsImpl;
 
-@Controller
+@RestController
 public class ProfileController {
-    @GetMapping("/profile")
-    public String getProfile(Authentication authentication, Model model) {
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();//получаем текущего пользователя
-        model.addAttribute("user", userDetails.getUser());
-        return "profile";
-
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/self")
+    public ResponseEntity<UserDto> getSelf() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getDetails();
+        System.out.println(userDetails);
+        return ResponseEntity.ok(UserDto.builder()
+                .name(userDetails.getUsername())
+                .id(userDetails.getUserId())
+                .build());
     }
+
 }

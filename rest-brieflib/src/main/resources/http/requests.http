@@ -6,8 +6,8 @@ POST http://localhost/api/users-management/users
 Content-Type: application/json
 
 {
-  "name" : "НеМарсель",
-  "email" : "notmarselmail@gmail.com",
+  "name" : "testuser",
+  "email" : "testuser@gmail.com",
   "password": "sd7a9s8f79912879q7a9a9qwqaqq"
 }
 
@@ -19,3 +19,26 @@ GET localhost:81/search/notes?q=1&page=0&size=1
 GET localhost:81/index
 
 ###
+
+POST localhost:81/signIn
+Content-Type: application/json
+
+{
+  "email" : "alsu.davletgareeva.2013@mail.ru",
+  "password": "12345"
+}
+
+###
+GET localhost:81/notes
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwibmFtZSI6IkFsc3VzaGthIiwicm9sZSI6IlVTRVIifQ.g4IYdAznMts41CzwJwV8rPhsuWmgsNDlPh38h3k3d6o
+
+###
+GET localhost:81/self
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwibmFtZSI6IkFsc3VzaGthIiwicm9sZSI6IlVTRVIifQ.g4IYdAznMts41CzwJwV8rPhsuWmgsNDlPh38h3k3d6o
+
+###
+GET localhost:81/note/3
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwibmFtZSI6IkFsc3VzaGthIiwicm9sZSI6jdgfsfrfIlVTRVIifQ.g4IYdAznMts41CzwJwV8rPhsuWmgsNDlPh38h3k3d6o
+
+###
+

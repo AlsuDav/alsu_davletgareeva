@@ -1,13 +1,13 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.models.Role;
-import ru.itis.springbootdemo.models.State;
-import ru.itis.springbootdemo.models.User;
-import ru.itis.springbootdemo.repositories.UsersRepository;
+import ru.itis.restbrieflib.dto.SignUpDto;
+import ru.itis.restbrieflib.models.Role;
+import ru.itis.restbrieflib.models.State;
+import ru.itis.restbrieflib.models.User;
+import ru.itis.restbrieflib.repositories.UsersRepository;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -17,10 +17,10 @@ import java.util.concurrent.ExecutorService;
 public class SignUpServiceImpl implements SignUpService {
     @Autowired
     private UsersRepository usersRepository;
-    @Autowired
-    private EmailService emailService;
-    @Autowired
-    private ExecutorService executorService;
+//    @Autowired
+//    private EmailService emailService;
+//    @Autowired
+//    private ExecutorService executorService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -38,6 +38,6 @@ public class SignUpServiceImpl implements SignUpService {
                 .build();
         usersRepository.save(user);
         //emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName());
-        executorService.submit(()->emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName()));
+        //executorService.submit(()->emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName()));
     }
 }

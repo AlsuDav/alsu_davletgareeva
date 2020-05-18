@@ -1,7 +1,7 @@
 package ru.itis.restbrieflib.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.itis.springbootdemo.models.User;
+import ru.itis.restbrieflib.models.User;
 
 import java.util.List;
 import java.util.Optional;

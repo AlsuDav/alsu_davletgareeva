@@ -1,11 +1,10 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
-import ru.itis.springbootdemo.dto.NoteDto;
-import ru.itis.springbootdemo.models.Note;
-import ru.itis.springbootdemo.models.User;
+import ru.itis.restbrieflib.dto.NoteDto;
+import ru.itis.restbrieflib.models.Note;
+import ru.itis.restbrieflib.models.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface NoteService {
     List<Note> findForId(Long id);
@@ -20,4 +19,6 @@ public interface NoteService {
     void delete(Note note);
 
     List<Note> findNotes(String access, User user);
+
+    List<Note> findNotesByUserId(String access, Long user_id);
 }

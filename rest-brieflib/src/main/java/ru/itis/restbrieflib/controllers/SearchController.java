@@ -1,13 +1,12 @@
-package ru.itis.springbootdemo.controllers;
+package ru.itis.restbrieflib.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.itis.springbootdemo.dto.NotesSearchResult;
-import ru.itis.springbootdemo.service.SearchService;
+import ru.itis.restbrieflib.dto.NotesSearchResult;
+import ru.itis.restbrieflib.service.SearchService;
 
 @RestController
 @RequestMapping("/search")

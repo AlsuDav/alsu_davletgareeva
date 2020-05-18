@@ -1,17 +1,17 @@
-package ru.itis.springbootdemo.controllers;
+package ru.itis.restbrieflib.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-import ru.itis.springbootdemo.dto.ProfileForm;
-import ru.itis.springbootdemo.dto.UserDto;
-import ru.itis.springbootdemo.models.User;
-import ru.itis.springbootdemo.repositories.UsersRepository;
-import ru.itis.springbootdemo.security.UserDetailsImpl;
-import ru.itis.springbootdemo.service.UsersService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import ru.itis.restbrieflib.dto.ProfileForm;
+import ru.itis.restbrieflib.models.User;
+import ru.itis.restbrieflib.repositories.UsersRepository;
+import ru.itis.restbrieflib.security.jwt.details.UserDetailsImpl;
+import ru.itis.restbrieflib.service.UsersService;
 
 import javax.validation.Valid;
 
@@ -25,7 +25,7 @@ public class EditProfileController {
     @GetMapping("/editProfile")
     public String getEdit(Authentication authentication, Model model){
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();//получаем текущего пользователя
-        model.addAttribute("user", userDetails.getUser());
+        model.addAttribute("user", userDetails.getUsername());
         model.addAttribute("profileForm", new ProfileForm());
         return "edit_profile";
     }
@@ -42,14 +42,14 @@ public class EditProfileController {
         System.out.println(form);
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         if(!bindingResult.hasErrors()){
-            User user = usersRepository.findById(userDetails.getUser().getId()).get();
+            User user = usersRepository.findById(userDetails.getUserId()).get();
             user.setEmail(form.getEmail());
             user.setName(form.getName());
             usersRepository.save(user);
             return "redirect:/profile";
         }
 
-        model.addAttribute("user", userDetails.getUser());
+        model.addAttribute("user", userDetails.getUsername());
         System.out.println(bindingResult.getAllErrors());
         model.addAttribute("profileForm", form);
         return "edit_profile";

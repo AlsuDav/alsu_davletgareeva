@@ -1,19 +1,19 @@
-package ru.itis.springbootdemo.service;
+package ru.itis.restbrieflib.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
-import ru.itis.springbootdemo.dto.SignUpDto;
-import ru.itis.springbootdemo.dto.UserDto;
-import ru.itis.springbootdemo.models.User;
-import ru.itis.springbootdemo.repositories.UsersRepository;
+import ru.itis.restbrieflib.dto.SignUpDto;
+import ru.itis.restbrieflib.dto.UserDto;
+import ru.itis.restbrieflib.models.User;
+import ru.itis.restbrieflib.repositories.UsersRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static ru.itis.springbootdemo.dto.UserDto.from;
+import static ru.itis.restbrieflib.dto.UserDto.from;
 
 @Component
 public class UsersServiceImpl implements UsersService {
