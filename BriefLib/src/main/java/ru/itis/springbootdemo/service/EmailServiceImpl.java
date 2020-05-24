@@ -47,5 +47,29 @@ public class EmailServiceImpl implements EmailService {
             javaMailSender.send(messagePreparator);
         }
 
+    @Override
+        public void sendReport(String subject, String text) {
+            VelocityContext context = new VelocityContext();
+            context.put("text", text);
+
+            VelocityEngine velocity = new VelocityEngine();
+            StringWriter writer = new StringWriter();
+            Template template = velocity.getTemplate("src/main/resources/mails/report.ftl");
+            template.merge(context, writer);
+
+            String result = writer.toString();
+
+            MimeMessagePreparator messagePreparator = mimeMessage -> {
+                MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+                messageHelper.setFrom(userName);
+                messageHelper.setTo(userName);
+                messageHelper.setSubject(subject);
+                messageHelper.setText(result, true);
+            };
+
+            javaMailSender.send(messagePreparator);
+            System.out.println("report was send");
     }
+
+}
 
