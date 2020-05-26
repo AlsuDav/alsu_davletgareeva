@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/index"><@spring.message 'all.page.header.main'/> <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/notes"><@spring.message 'all.page.header.main'/> <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
@@ -47,7 +47,7 @@
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="/profile"><@spring.message 'profile.page.myprofile'/></a>
                     <a class="dropdown-item" href="/bookmarks"><@spring.message 'profile.page.bookmarks'/></a>
-                    <a class="dropdown-item" href="#"><@spring.message 'profile.page.mynotes'/></a>
+                    <a class="dropdown-item" href="/myNotes"><@spring.message 'profile.page.mynotes'/></a>
                     <a class="dropdown-item" href="/changePassword"><@spring.message 'profile.page.changepassword'/></a>
                     <a class="dropdown-item" href="/logout"><@spring.message 'profile.page.logout'/></a>
                 </div>

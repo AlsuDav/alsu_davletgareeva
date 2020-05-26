@@ -44,13 +44,13 @@ public class NoteController {
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user =  userDetails.getUser();
         noteService.createNote(form, user);
-        return "redirect:/notes";
+        return "redirect:/myNotes";
     }
     @GetMapping("/myNotes")
-    public String getUserNotes(@RequestParam("access") String access, Authentication authentication, Model model){
+    public String getUserNotes(Authentication authentication, Model model){
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         User user =  userDetails.getUser();
-        List<Note> notes = noteService.findNotes(access,user);
+        List<NoteDto> notes = noteService.findNotes(user);
 //        if(access.equals("all")){
 //            notes = noteService.getUserNotes(user);
 //        }

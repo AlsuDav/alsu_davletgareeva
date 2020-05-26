@@ -25,6 +25,9 @@ public class NoteDto {
     private String grade;
     private String access_type;
     private LocalDateTime createdAt;
+    private String common_title;
+    private String description;
+    private String createdAtString;
 
     public static NoteDto from(Note note) {
         return NoteDto.builder()
@@ -36,6 +39,9 @@ public class NoteDto {
                 .createdAt(note.getCreatedAt())
                 .grade(note.getGrade())
                 .access_type(note.getAccessType().name())
+                .common_title(note.getCommon_title())
+                .description(note.getDescription())
+                .createdAtString(note.getCreatedAtString())
                 .build();
     }
     public static List<NoteDto> from(List<Note> notes) {

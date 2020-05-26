@@ -44,10 +44,12 @@ public class User  implements Serializable {
     @JoinColumn(name = "photo_id")
     private FileInfo photo;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Where(clause = "access_type = 'PUBLIC'")
     private List<Note> publicNotes=new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @Where(clause = "access_type = 'PRIVATE'")
     private List<Note> privateNotes =new ArrayList<>();

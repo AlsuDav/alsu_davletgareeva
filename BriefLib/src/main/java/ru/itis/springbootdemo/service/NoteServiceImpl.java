@@ -85,6 +85,12 @@ public class NoteServiceImpl implements NoteService{
         }
 
     }
+    @Override
+    public List<NoteDto> findNotes(User user) {
+        return from(notesRepository.findAllByUser(user));
+
+    }
+
 
 
 }

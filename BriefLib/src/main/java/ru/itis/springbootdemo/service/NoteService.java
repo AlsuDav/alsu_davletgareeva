@@ -20,4 +20,5 @@ public interface NoteService {
     void delete(Note note);
 
     List<Note> findNotes(String access, User user);
+    List<NoteDto> findNotes(User user);
 }
