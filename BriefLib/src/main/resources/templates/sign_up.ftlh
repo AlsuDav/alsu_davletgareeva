@@ -57,6 +57,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
                 </li>
+
             </ul>
             <form class="form-inline">
                 <div class="input-group">

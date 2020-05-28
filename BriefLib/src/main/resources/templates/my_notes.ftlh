@@ -93,6 +93,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/forum"><@spring.message 'all.page.header.forum'/></a>
+            </li>
         </ul>
         <form class="form-inline">
             <div class="input-group">

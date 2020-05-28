@@ -10,7 +10,7 @@
     <script type="application/javascript">
         function search(page) {
             var size = 5;
-            if ($("#query").val().length >= 3) {
+            if ($("#query").val().length >= 1) {
                 $.ajax({
                     url: "/search/notes",
                     data: {
@@ -91,6 +91,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><@spring.message 'all.page.header.help'/></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/forum"><@spring.message 'all.page.header.forum'/></a>
             </li>
         </ul>
         <form class="form-inline">

@@ -40,4 +40,5 @@ public class SignUpServiceImpl implements SignUpService {
         //emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName());
         executorService.submit(()->emailService.sendMail("Confirm", user.getConfirmCode(), user.getEmail(), user.getName()));
     }
+
 }
